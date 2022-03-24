@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 public class Job extends AbstractEntity{
-//2
+//3
 //    @Id
 //    @GeneratedValue
 //    private int id;
@@ -40,11 +40,11 @@ public class Job extends AbstractEntity{
 
     public Employer getEmployer() {
         return employer;
-    }
+    } //3
 
     public void setEmployer(Employer employer) {
         this.employer = employer;
-    }
+    } //3
 
     public List<Skill> getSkills() {
         return skills;

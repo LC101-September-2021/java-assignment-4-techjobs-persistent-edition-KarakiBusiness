@@ -19,7 +19,7 @@ public class SkillController {
     private SkillRepository skillRepository;
 
     @GetMapping
-    public String displaySkillIndex(Model model) {
+    public String index(Model model) {
         model.addAttribute("skills", skillRepository.findAll());
         return "skills/index";
     }
@@ -35,8 +35,6 @@ public class SkillController {
                                          Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Add Skill");
-            model.addAttribute("skills", skillRepository.findAll());
             return "skills/add";
         }
         skillRepository.save(newSkill); //2
@@ -46,7 +44,7 @@ public class SkillController {
     @GetMapping("view/{skillId}")
     public String displayViewSkill(Model model, @PathVariable int skillId) {
 
-        Optional<Skill> optSkill = skillRepository.findById(skillId); //2
+        Optional optSkill = skillRepository.findById(skillId); //2
         if (optSkill.isPresent()) {
             Skill skill = (Skill) optSkill.get();
             model.addAttribute("skill", skill);

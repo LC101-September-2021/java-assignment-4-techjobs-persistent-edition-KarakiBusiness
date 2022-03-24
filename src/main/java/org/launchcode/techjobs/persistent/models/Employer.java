@@ -12,7 +12,7 @@ import java.util.List;
 public class Employer extends AbstractEntity {
 
     @NotBlank //2
-    @Size(max = 50) //2
+    @Size(max = 70) //2
     private String location; //2
 
     @OneToMany
